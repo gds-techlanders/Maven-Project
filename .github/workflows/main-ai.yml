@@ -30,7 +30,7 @@ jobs:
       - name: Build Maven Package
         id: maven_build
         run: |
-          mv package > build.log 2>&1
+          mvn package > build.log 2>&1
           echo "BUILD_STATUS=success" >> $GITHUB_ENV
         continue-on-error: false
 
