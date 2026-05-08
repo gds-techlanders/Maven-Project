@@ -30,9 +30,9 @@ jobs:
       - name: Build Maven Package
         id: maven_build
         run: |
-          mvn package > build.log 2>&1
+          mv package > build.log 2>&1
           echo "BUILD_STATUS=success" >> $GITHUB_ENV
-        continue-on-error: true
+        continue-on-error: false
 
       - name: Detect Maven Failure
         if: failure()
@@ -57,7 +57,7 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          docke build -t gagandeepgawri/cts:latest . >> build.log 2>&1
+          docker build -t gagandeepgawri/cts:latest . >> build.log 2>&1
           docker push gagandeepgawri/cts:latest >> build.log 2>&1
         continue-on-error: true
 
