@@ -69,10 +69,12 @@ jobs:
 
       - name: Setup Python
         uses: actions/setup-python@v5
+        if: always()
         with:
           python-version: '3.11'
 
       - name: Install OpenAI SDK
+        if: always()
         run: pip install openai
 
       - name: Run AI Build Analysis
@@ -84,6 +86,7 @@ jobs:
         run: python scripts/build_analysis.py
 
       - name: Upload AI Report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: ai-build-report
