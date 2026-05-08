@@ -58,7 +58,7 @@ jobs:
       - name: Build and Push Docker Image
         run: |
           docker build -t gagandeepgawri/cts:latest . >> build.log 2>&1
-          docker push gagandeepgawri/cts:latest >> build.log 2>&1
+          docke push gagandeepgawri/cts:latest >> build.log 2>&1
         continue-on-error: true
 
       - name: Docker Container Creation Test
